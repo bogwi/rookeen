@@ -1,0 +1,7 @@
+Les nombres premiers comme débris cosmiques
+
+Imaginez l'infini comme un processus, et non comme un concept statique : une boucle incessante où un compteur cosmique continue de tourner, +=1, étape par étape, pour toujours. Ce compteur est comme un navire qui file à toute allure sur la droite numérique, et à mesure qu'il accélère vers une limite ultime (par exemple, la vitesse de la lumière, *c*, qui représente la limite de la compréhension), il commence à perdre des « débris ». Dans cette analogie, les nombres premiers — 2, 3, 5, 7, 11, etc. — pourraient être les fragments qui se détachent, les morceaux irréductibles qui résistent à la décomposition par les machines du navire (la division, dans ce cas). Tout le reste, les nombres composés, est broyé ou fusionné, tandis que les nombres premiers sont les survivants obstinés, projetés dans le vide.
+
+Copyright - rookeen
+
+[Traduit avec DeepL]

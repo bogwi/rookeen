@@ -1,0 +1,10 @@
+{
+  "tool": "rookeen",
+  "version": "0.1.0",
+  "language": {
+    "code": 123,
+    "confidence": "high",
+    "model": "en_core_web_sm"
+  },
+  "analyzers": []
+}

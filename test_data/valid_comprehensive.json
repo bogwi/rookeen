@@ -1,0 +1,225 @@
+{
+  "tool": "rookeen",
+  "version": "0.1.0",
+  "source": {
+    "type": "url",
+    "value": "https://example.com/test",
+    "fetched_at": 1758202775.0,
+    "domain": "example.com"
+  },
+  "language": {
+    "code": "en",
+    "confidence": 0.999,
+    "model": "en_core_web_sm"
+  },
+  "content": {
+    "title": "Test Article",
+    "char_count": 1000,
+    "word_count": 200
+  },
+  "analyzers": [
+    {
+      "name": "lexical_stats",
+      "processing_time": 0.1,
+      "confidence": 1.0,
+      "results": {
+        "total_tokens": 150,
+        "unique_lemmas": 80,
+        "sentences": 10,
+        "avg_token_length": 4.5,
+        "avg_sentence_length_tokens": 15.0,
+        "type_token_ratio": 0.533,
+        "top_lemmas": [
+          ["test", 10],
+          ["example", 8],
+          ["data", 5]
+        ]
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "pos",
+      "processing_time": 0.05,
+      "confidence": 1.0,
+      "results": {
+        "upos_counts": {
+          "NOUN": 50,
+          "VERB": 30,
+          "ADJ": 20,
+          "ADP": 15,
+          "DET": 10
+        },
+        "upos_ratios": {
+          "NOUN": 0.333,
+          "VERB": 0.200,
+          "ADJ": 0.133,
+          "ADP": 0.100,
+          "DET": 0.067
+        },
+        "top_lemmas_by_upos": {
+          "NOUN": [
+            ["test", 5],
+            ["example", 3]
+          ],
+          "VERB": [
+            ["be", 8],
+            ["have", 4]
+          ]
+        }
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "ner",
+      "processing_time": 0.03,
+      "confidence": 1.0,
+      "results": {
+        "supported": true,
+        "counts_by_label": {
+          "PERSON": 5,
+          "ORG": 3,
+          "GPE": 2
+        },
+        "examples_by_label": {
+          "PERSON": ["John Doe", "Jane Smith"],
+          "ORG": ["Example Corp"],
+          "GPE": ["New York"]
+        },
+        "total_entities": 10
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "readability",
+      "processing_time": 0.2,
+      "confidence": 1.0,
+      "results": {
+        "supported": true,
+        "note": "Readability metrics calibrated for English",
+        "flesch_reading_ease": 65.0,
+        "flesch_kincaid_grade": 8.5,
+        "smog_index": 9.0,
+        "automated_readability_index": 8.0,
+        "coleman_liau_index": 9.5,
+        "linsear_write_formula": 8.0,
+        "dale_chall_readability_score": 7.5,
+        "difficult_words": 25,
+        "text_standard": "8th and 9th grade"
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "keywords",
+      "processing_time": 0.5,
+      "confidence": 1.0,
+      "results": {
+        "method": "yake",
+        "keywords": [
+          ["machine learning", 0.85],
+          ["artificial intelligence", 0.72],
+          ["data science", 0.68]
+        ]
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "sentiment",
+      "processing_time": 0.1,
+      "confidence": 0.95,
+      "results": {
+        "supported": true,
+        "label": "positive",
+        "score": 0.85,
+        "method": "vader",
+        "scores": {
+          "neg": 0.05,
+          "neu": 0.20,
+          "pos": 0.75,
+          "compound": 0.85
+        }
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "dependency",
+      "processing_time": 0.08,
+      "confidence": 0.9,
+      "results": {
+        "supported": true,
+        "dep_counts": {
+          "nsubj": 20,
+          "dobj": 15,
+          "prep": 12,
+          "amod": 18
+        },
+        "head_pos_dep": {
+          "NOUN->amod": 15,
+          "VERB->nsubj": 12,
+          "VERB->dobj": 10
+        }
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    },
+    {
+      "name": "embeddings",
+      "processing_time": 2.5,
+      "confidence": 1.0,
+      "results": {
+        "supported": true,
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "dim": 384,
+        "vector": [0.1, 0.2, 0.3, 0.4, 0.5]
+      },
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 0.999
+        },
+        "model": "en_core_web_sm"
+      }
+    }
+  ],
+  "timing": {}
+}

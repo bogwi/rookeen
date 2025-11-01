@@ -1,0 +1,9 @@
+Hello world! This is English text.
+Bonjour le monde! Ceci est du texte français.
+Hola mundo! Este es texto en español.
+Hallo Welt! Dies ist deutscher Text.
+こんにちは世界！これは日本語のテキストです。
+你好世界！这是中文文本。
+Здравствуй мир! Это русский текст.
+مرحبا بالعالم! هذا نص عربي.
+สวัสดีโลก! นี่คือข้อความภาษาไทย.

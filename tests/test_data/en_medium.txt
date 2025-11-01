@@ -1,0 +1,2 @@
+NLP includes tokenization, parsing, named entity recognition, and sentiment analysis. It powers search, chatbots, and summarization.
+

@@ -1,0 +1,20 @@
+{
+  "tool": "rookeen",
+  "version": "0.1.0",
+  "language": {
+    "code": "en",
+    "confidence": 0.95,
+    "model": "en_core_web_sm"
+  },
+  "analyzers": [
+    {
+      "name": "lexical_stats",
+      "processing_time": 0.1,
+      "confidence": 1.0,
+      "results": {
+        "unique_lemmas": 80,
+        "sentences": 10
+      }
+    }
+  ]
+}

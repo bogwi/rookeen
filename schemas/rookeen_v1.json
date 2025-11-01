@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rookeen Output v1",
+  "type": "object",
+  "required": ["tool", "version", "language", "analyzers"],
+  "properties": {
+    "tool": {
+      "const": "rookeen"
+    },
+    "version": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["url", "file", "stdin"]
+        },
+        "value": {
+          "type": "string"
+        },
+        "fetched_at": {
+          "type": "number"
+        },
+        "domain": {
+          "type": "string"
+        }
+      }
+    },
+    "language": {
+      "type": "object",
+      "required": ["code", "confidence", "model"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "model": {
+          "type": "string"
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "char_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "word_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "analyzers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "processing_time", "confidence", "results"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": ["lexical_stats", "pos", "ner", "readability", "keywords", "sentiment", "dependency", "embeddings"]
+          },
+          "processing_time": {
+            "type": "number",
+            "minimum": 0
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "results": {
+            "oneOf": [
+              {
+                "$comment": "lexical_stats results",
+                "type": "object",
+                "required": ["total_tokens"],
+                "properties": {
+                  "total_tokens": {"type": "integer", "minimum": 0},
+                  "unique_lemmas": {"type": "integer", "minimum": 0},
+                  "sentences": {"type": "integer", "minimum": 0},
+                  "avg_token_length": {"type": "number", "minimum": 0},
+                  "avg_sentence_length_tokens": {"type": "number", "minimum": 0},
+                  "type_token_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+                  "top_lemmas": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {"type": "string"},
+                        {"type": "integer", "minimum": 0}
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "pos results",
+                "type": "object",
+                "required": ["upos_counts"],
+                "properties": {
+                  "upos_counts": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z]+$": {"type": "integer", "minimum": 0}
+                    }
+                  },
+                  "upos_ratios": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z]+$": {"type": "number", "minimum": 0, "maximum": 1}
+                    }
+                  },
+                  "top_lemmas_by_upos": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z]+$": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "minItems": 2,
+                          "maxItems": 2,
+                          "prefixItems": [
+                            {"type": "string"},
+                            {"type": "integer", "minimum": 0}
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "ner results",
+                "type": "object",
+                "required": ["counts_by_label"],
+                "properties": {
+                  "supported": {"type": "boolean"},
+                  "counts_by_label": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z_]+$": {"type": "integer", "minimum": 0}
+                    }
+                  },
+                  "examples_by_label": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z_]+$": {
+                        "type": "array",
+                        "items": {"type": "string"}
+                      }
+                    }
+                  },
+                  "total_entities": {"type": "integer", "minimum": 0}
+                }
+              },
+              {
+                "$comment": "readability results",
+                "type": "object",
+                "required": ["flesch_reading_ease"],
+                "properties": {
+                  "supported": {"type": "boolean"},
+                  "note": {"type": "string"},
+                  "flesch_reading_ease": {"type": "number"},
+                  "flesch_kincaid_grade": {"type": "number"},
+                  "smog_index": {"type": "number"},
+                  "automated_readability_index": {"type": "number"},
+                  "coleman_liau_index": {"type": "number"},
+                  "linsear_write_formula": {"type": "number"},
+                  "dale_chall_readability_score": {"type": "number"},
+                  "difficult_words": {"type": "integer", "minimum": 0},
+                  "text_standard": {"type": "string"}
+                }
+              },
+              {
+                "$comment": "keywords results",
+                "type": "object",
+                "required": ["method", "keywords"],
+                "properties": {
+                  "method": {"type": "string"},
+                  "keywords": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {"type": "string"},
+                        {"type": "number"}
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "sentiment results",
+                "type": "object",
+                "required": ["label"],
+                "properties": {
+                  "supported": {"type": "boolean"},
+                  "label": {"type": "string"},
+                  "score": {"type": "number", "minimum": 0, "maximum": 1},
+                  "method": {"type": "string"},
+                  "model": {"type": "string"},
+                  "processing_time": {"type": "number", "minimum": 0},
+                  "sampled": {"type": "boolean"},
+                  "original_length": {"type": "integer", "minimum": 0},
+                  "sample_length": {"type": "integer", "minimum": 0},
+                  "scores": {
+                    "type": "object",
+                    "properties": {
+                      "neg": {"type": "number", "minimum": 0, "maximum": 1},
+                      "neu": {"type": "number", "minimum": 0, "maximum": 1},
+                      "pos": {"type": "number", "minimum": 0, "maximum": 1},
+                      "compound": {"type": "number", "minimum": -1, "maximum": 1}
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "dependency results",
+                "type": "object",
+                "required": ["dep_counts"],
+                "properties": {
+                  "supported": {"type": "boolean"},
+                  "dep_counts": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[a-z_]+$": {"type": "integer", "minimum": 0}
+                    }
+                  },
+                  "head_pos_dep": {
+                    "type": "object",
+                    "patternProperties": {
+                      "^[A-Z]+->[a-z_]+$": {"type": "integer", "minimum": 0}
+                    }
+                  }
+                }
+              },
+              {
+                "$comment": "embeddings results",
+                "type": "object",
+                "required": ["vector"],
+                "properties": {
+                  "supported": {"type": "boolean"},
+                  "backend": {"type": "string"},
+                  "model": {"type": "string"},
+                  "dim": {"type": "integer", "minimum": 0},
+                  "normalized": {"type": "boolean"},
+                  "vector": {
+                    "type": "array",
+                    "items": {"type": "number"}
+                  }
+                }
+              }
+            ]
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {
+              "language": {
+                "type": "object",
+                "properties": {
+                  "code": {"type": "string"},
+                  "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+                }
+              },
+              "model": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "timing": {
+      "type": "object"
+    }
+  }
+}

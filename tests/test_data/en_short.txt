@@ -1,0 +1,2 @@
+Natural language processing (NLP) explores how computers understand human language.
+

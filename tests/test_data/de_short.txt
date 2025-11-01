@@ -1,0 +1,2 @@
+Die Verarbeitung natürlicher Sprache (NLP) untersucht, wie Computer menschliche Sprache verstehen.
+

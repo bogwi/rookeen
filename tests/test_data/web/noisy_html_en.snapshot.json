@@ -1,0 +1,594 @@
+{
+  "analyzers": {
+    "dependency": {
+      "confidence": 0.9,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "dep_counts": {
+          "ROOT": 29,
+          "acl": 11,
+          "acomp": 4,
+          "advcl": 7,
+          "advmod": 18,
+          "agent": 1,
+          "amod": 105,
+          "appos": 167,
+          "attr": 4,
+          "aux": 8,
+          "auxpass": 2,
+          "case": 3,
+          "cc": 10,
+          "ccomp": 11,
+          "compound": 139,
+          "conj": 32,
+          "dative": 1,
+          "dep": 387,
+          "det": 20,
+          "dobj": 62,
+          "mark": 5,
+          "neg": 1,
+          "nmod": 169,
+          "npadvmod": 23,
+          "nsubj": 35,
+          "nsubjpass": 1,
+          "nummod": 21,
+          "oprd": 2,
+          "parataxis": 1,
+          "pcomp": 4,
+          "pobj": 85,
+          "poss": 10,
+          "preconj": 1,
+          "prep": 66,
+          "punct": 741,
+          "quantmod": 1,
+          "relcl": 1,
+          "xcomp": 4
+        },
+        "head_pos_dep": {
+          "ADP->pobj": 70,
+          "NOUN->amod": 90,
+          "NOUN->appos": 109,
+          "NOUN->compound": 83,
+          "NOUN->dep": 46,
+          "NOUN->nmod": 74,
+          "NOUN->prep": 38,
+          "NOUN->punct": 428,
+          "PROPN->appos": 47,
+          "PROPN->compound": 51,
+          "PROPN->dep": 35,
+          "PROPN->nmod": 69,
+          "PROPN->punct": 160,
+          "PUNCT->dep": 68,
+          "VERB->dep": 43,
+          "VERB->dobj": 54,
+          "VERB->nsubj": 23,
+          "VERB->punct": 88,
+          "X->dep": 172,
+          "X->punct": 35
+        },
+        "supported": true
+      }
+    },
+    "keywords": {
+      "confidence": 1.0,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "keywords": [
+          [
+            "div",
+            842.247365
+          ],
+          [
+            "class",
+            585.45229
+          ],
+          [
+            "href",
+            216.188341
+          ],
+          [
+            "strong",
+            162.773565
+          ],
+          [
+            "BERT",
+            106.965917
+          ],
+          [
+            "Header",
+            71.297515
+          ],
+          [
+            "Understanding",
+            56.807657
+          ],
+          [
+            "script",
+            52.254844
+          ],
+          [
+            "NLP",
+            43.453867
+          ],
+          [
+            "itemprop",
+            39.403933
+          ],
+          [
+            "Research",
+            38.529072
+          ],
+          [
+            "span",
+            36.920239
+          ],
+          [
+            "language",
+            34.01764
+          ],
+          [
+            "button",
+            32.939026
+          ],
+          [
+            "model",
+            32.555823
+          ],
+          [
+            "natural",
+            30.010767
+          ],
+          [
+            "contact",
+            27.600827
+          ],
+          [
+            "home",
+            25.183041
+          ],
+          [
+            "tools",
+            25.183041
+          ],
+          [
+            "style",
+            24.731565
+          ]
+        ],
+        "method": "yake"
+      }
+    },
+    "lexical_stats": {
+      "confidence": 1.0,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "avg_sentence_length_tokens": 21.965517,
+        "avg_token_length": 6.513566,
+        "sentences": 29,
+        "top_lemmas": [
+          [
+            "div",
+            27
+          ],
+          [
+            "p",
+            14
+          ],
+          [
+            "bert",
+            11
+          ],
+          [
+            "model",
+            9
+          ],
+          [
+            "function",
+            8
+          ],
+          [
+            "const",
+            7
+          ],
+          [
+            "script",
+            7
+          ],
+          [
+            "section",
+            7
+          ],
+          [
+            "article",
+            6
+          ],
+          [
+            "btn",
+            6
+          ],
+          [
+            "language",
+            6
+          ],
+          [
+            "aria",
+            5
+          ],
+          [
+            "header",
+            5
+          ],
+          [
+            "natural",
+            5
+          ],
+          [
+            "nlp",
+            5
+          ],
+          [
+            "button",
+            4
+          ],
+          [
+            "consent",
+            4
+          ],
+          [
+            "content",
+            4
+          ],
+          [
+            "cookie",
+            4
+          ],
+          [
+            "link",
+            4
+          ]
+        ],
+        "total_tokens": 516,
+        "type_token_ratio": 0.571705,
+        "unique_lemmas": 295
+      }
+    },
+    "ner": {
+      "confidence": 1.0,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "counts_by_label": {
+          "CARDINAL": 4,
+          "DATE": 4,
+          "GPE": 1,
+          "ORG": 25,
+          "PERCENT": 2,
+          "PERSON": 14,
+          "PRODUCT": 1,
+          "WORK_OF_ART": 1
+        },
+        "examples_by_label": {
+          "CARDINAL": [
+            "content=\"width",
+            "2024</time",
+            "2018</cite",
+            "3rem 2rem"
+          ],
+          "DATE": [
+            "4rem 2rem",
+            "2018",
+            "2024",
+            "days"
+          ],
+          "GPE": [
+            "AI"
+          ],
+          "ORG": [
+            "DOCTYPE",
+            "href=\"https://fonts.googleapis.com",
+            "Inter'",
+            "Google Analytics",
+            "NLP",
+            "NLP",
+            "BERT",
+            "Google",
+            "BERT",
+            "GPT"
+          ],
+          "PERCENT": [
+            "0%",
+            "100%"
+          ],
+          "PERSON": [
+            "Date",
+            "li><a",
+            "li><a",
+            "li><a",
+            "li><a",
+            "Sarah",
+            "Loading",
+            "BertTokenizer.from_pretrained('bert-base",
+            "li><a",
+            "li><a"
+          ],
+          "PRODUCT": [
+            "BertTokenizer"
+          ],
+          "WORK_OF_ART": [
+            "href=\"https://fonts.googleapis.com"
+          ]
+        },
+        "supported": true,
+        "total_entities": 52
+      }
+    },
+    "pos": {
+      "confidence": 1.0,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "top_lemmas_by_upos": {
+          "ADJ": [
+            [
+              "div",
+              20
+            ],
+            [
+              "natural",
+              4
+            ],
+            [
+              "meta",
+              3
+            ],
+            [
+              "social",
+              3
+            ],
+            [
+              "modern",
+              2
+            ]
+          ],
+          "ADP": [
+            [
+              "like",
+              2
+            ]
+          ],
+          "ADV": [
+            [
+              "simultaneously",
+              2
+            ],
+            [
+              "rapidly",
+              1
+            ],
+            [
+              "aside",
+              1
+            ],
+            [
+              "normally",
+              1
+            ],
+            [
+              "dynamically",
+              1
+            ]
+          ],
+          "AUX": [
+            [
+              "stay",
+              1
+            ]
+          ],
+          "NOUN": [
+            [
+              "model",
+              9
+            ],
+            [
+              "function",
+              8
+            ],
+            [
+              "script",
+              7
+            ],
+            [
+              "section",
+              7
+            ],
+            [
+              "const",
+              7
+            ]
+          ],
+          "PRON": [
+            [
+              "ul",
+              1
+            ]
+          ],
+          "PROPN": [
+            [
+              "bert",
+              9
+            ],
+            [
+              "nlp",
+              5
+            ],
+            [
+              "btn",
+              4
+            ],
+            [
+              "google",
+              3
+            ],
+            [
+              "aria",
+              3
+            ]
+          ],
+          "SCONJ": [
+            [
+              "despite",
+              1
+            ]
+          ],
+          "VERB": [
+            [
+              "understand",
+              3
+            ],
+            [
+              "improve",
+              3
+            ],
+            [
+              "link",
+              2
+            ],
+            [
+              "header",
+              2
+            ],
+            [
+              "allow",
+              2
+            ]
+          ],
+          "X": [
+            [
+              "p",
+              13
+            ],
+            [
+              "ul",
+              3
+            ],
+            [
+              "head",
+              1
+            ],
+            [
+              "cite",
+              1
+            ],
+            [
+              "ol",
+              1
+            ]
+          ]
+        },
+        "upos_counts": {
+          "ADJ": 102,
+          "ADP": 57,
+          "ADV": 15,
+          "AUX": 7,
+          "CCONJ": 10,
+          "DET": 20,
+          "NOUN": 364,
+          "NUM": 38,
+          "PART": 10,
+          "PRON": 15,
+          "PROPN": 248,
+          "PUNCT": 453,
+          "SCONJ": 9,
+          "SPACE": 252,
+          "SYM": 40,
+          "VERB": 76,
+          "X": 476
+        },
+        "upos_ratios": {
+          "ADJ": 0.046533,
+          "ADP": 0.026004,
+          "ADV": 0.006843,
+          "AUX": 0.003193,
+          "CCONJ": 0.004562,
+          "DET": 0.009124,
+          "NOUN": 0.166058,
+          "NUM": 0.017336,
+          "PART": 0.004562,
+          "PRON": 0.006843,
+          "PROPN": 0.113139,
+          "PUNCT": 0.206661,
+          "SCONJ": 0.004106,
+          "SPACE": 0.114964,
+          "SYM": 0.018248,
+          "VERB": 0.034672,
+          "X": 0.217153
+        }
+      }
+    },
+    "readability": {
+      "confidence": 1.0,
+      "metadata": {
+        "language": {
+          "code": "en",
+          "confidence": 1.0
+        },
+        "model": "en_core_web_sm"
+      },
+      "results": {
+        "automated_readability_index": 33.136338,
+        "coleman_liau_index": 34.115566,
+        "dale_chall_readability_score": 17.042099,
+        "difficult_words": 403,
+        "flesch_kincaid_grade": 19.959946,
+        "flesch_reading_ease": -21.999104,
+        "linsear_write_formula": 5.615385,
+        "note": "Readability metrics are calibrated for English; interpret non-English results with caution.",
+        "smog_index": 16.463531,
+        "supported": true,
+        "text_standard": "19th and 20th grade"
+      }
+    }
+  },
+  "content": {
+    "char_count": 13579,
+    "title": "<stdin>",
+    "word_count": 936
+  },
+  "language": {
+    "code": "en",
+    "model": "en_core_web_sm"
+  },
+  "source": {
+    "domain": "",
+    "type": "stdin",
+    "value": "<stdin>"
+  }
+}

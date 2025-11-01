@@ -1,0 +1,144 @@
+[project]
+name = "rookeen"
+version = "0.1.0"
+description = "Advanced Python example demonstrating async programming, meta-programming, types, and scientific computing"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "textstat==0.7.10",
+    "aiohttp>=3.12.15",
+    "asyncio-mqtt>=0.16.2",
+    "matplotlib>=3.10.6",
+    "numpy>=2.3.2",
+    "pydantic>=2.11.7",
+    "scipy>=1.16.1",
+    "typing-extensions>=4.15.0",
+    "spacy>=3.7.0",
+    "langdetect>=1.0.9",
+    "typer>=0.12.5",
+    "seaborn>=0.13.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=4.9.0",
+    "brotli>=1.1.0",
+    "aiohttp[speedups]>=3.12.15",
+    "yake>=0.6.0",
+    "click>=8.2.1",
+    "pyconll>=3.2.0",
+    "regex>=2025.9.1",
+    "udapi",
+    "conllu>=6.0.0",
+    "pyarrow>=21.0.0",
+    "sentence-transformers>=3.0.0",
+    "jsonschema>=4.25.1",
+    "vadersentiment>=3.3.2",
+    "textblob>=0.17.1",
+    "pip>=25.0.1",
+    "ruff>=0.14.2",
+    "pre-commit>=4.3.0",
+    "mypy>=1.18.2",
+    # English model required for CI smoke tests
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
+]
+
+[project.optional-dependencies]
+ud = [
+    "stanza>=1.7,<2.0",
+]
+parquet = [
+    "pyarrow>=16",
+]
+embeddings = [
+    "sentence-transformers>=3.0.0",
+    "openai>=1.0.0",
+]
+sentiment = [
+    "vadersentiment>=3.3.2",
+    "textblob>=0.17.1",
+]
+# Additional language models (install as needed)
+lang-de = [
+    "de-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/de_core_news_sm-3.8.0/de_core_news_sm-3.8.0-py3-none-any.whl",
+]
+lang-es = [
+    "es-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/es_core_news_sm-3.8.0/es_core_news_sm-3.8.0-py3-none-any.whl",
+]
+lang-fr = [
+    "fr-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.8.0/fr_core_news_sm-3.8.0-py3-none-any.whl",
+]
+
+[project.scripts]
+rookeen = "rookeen.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# Only package the actual Python package
+include-package-data = false
+
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rookeen", "rookeen.*"]
+exclude = [
+    "tests*", "bench*", "dev*", "scripts*", "results*", "schemas*", "test_data*", "tools*"
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E","F","I","B","UP","RET","SIM","C90","N","RUF"]
+ignore = ["E203", "E501", "C901"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+
+[tool.pytest.ini_options]
+markers = [
+    "smoke: marks tests as smoke tests for fast CI validation"
+    ,
+    "slow: marks tests as slow; excluded from default CI runs",
+    "external: marks tests that require external services or credentials"
+]
+addopts = "-q"
+testpaths = ["tests", "scripts"]
+filterwarnings = [
+    # Silence third-party deprecations from spaCy/Weasel (Click split_arg_string)
+    "ignore:.*split_arg_string.*:DeprecationWarning",
+    "ignore:.*builtin type SwigPyObject has no __module__ attribute.*:DeprecationWarning",
+    "ignore:.*builtin type SwigPyPacked has no __module__ attribute.*:DeprecationWarning",
+    "ignore:.*builtin type swigvarlink has no __module__ attribute.*:DeprecationWarning"
+]
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+no_implicit_optional = true
+strict_optional = true
+check_untyped_defs = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+
+[tool.uv]
+package = true
+
+[tool.uv.sources]
+udapi = { git = "https://github.com/udapi/udapi-python.git" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "pytest-xdist>=3.6.0",
+]

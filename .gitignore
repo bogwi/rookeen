@@ -1,0 +1,37 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.ruff_cache
+.mypy_cache
+.pytest_cache
+
+# Virtual environments
+.venv
+
+# Results
+*.png
+results/*
+!results/.gitkeep
+bench/results/*
+!bench/results/.gitkeep
+
+# Development
+dev
+tools/
+benchmark_output.txt
+
+#System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Other

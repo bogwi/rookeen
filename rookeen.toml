@@ -1,0 +1,6 @@
+[rookeen]
+format = "json"
+output_dir = "results"
+languages_preload = ["en"]
+models_auto_download = true
+log_level = "INFO"
