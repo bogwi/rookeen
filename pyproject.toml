@@ -1,8 +1,9 @@
 [project]
 name = "rookeen"
 version = "0.1.0"
-description = "Advanced Python example demonstrating async programming, meta-programming, types, and scientific computing"
+description = "A spaCy-based CLI for web linguistic analysis with embeddings, sentiment, POS/NER, and Unix pipeline composability"
 readme = "README.md"
+license = {text = "MIT"}
 requires-python = ">=3.12"
 dependencies = [
     "textstat==0.7.10",
